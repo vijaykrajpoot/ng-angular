@@ -9,9 +9,9 @@
 </head>
 <body>
 
-    <div ng-controller="myClockController">
+    <div ng-controller=myClockController>
 
-      <h5>Hi {{clock}}! </h5>
+      <h1>Hi {{clock}}! </h1>
 
     </div>
 
@@ -20,7 +20,11 @@
           $scope.clock=new Date();
           var updateClock=function () {
               $scope.clock=new Date();
-          }
+          };
+
+          setInterval(function () {
+            $scope.$apply(updateClock);
+          },1000);
           updateClock();
       };
 
